@@ -1,0 +1,1173 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://StreetMap.glb" type="PackedScene" id=1]
+[ext_resource path="res://Building_texture.jpg" type="Texture" id=2]
+[ext_resource path="res://Trunk_002.material" type="Material" id=3]
+[ext_resource path="res://Branch0.material" type="Material" id=4]
+[ext_resource path="res://Trunk_001.material" type="Material" id=5]
+[ext_resource path="res://21 - Default.material" type="Material" id=6]
+[ext_resource path="res://Canopy_003.material" type="Material" id=7]
+[ext_resource path="res://Canopy_002.material" type="Material" id=8]
+[ext_resource path="res://Trunk.material" type="Material" id=9]
+[ext_resource path="res://Branch0_002.material" type="Material" id=10]
+[ext_resource path="res://Wall Paint_Glossy Navy.material" type="Material" id=11]
+[ext_resource path="res://Wall Paint_Glossy Periwinkle.material" type="Material" id=12]
+[ext_resource path="res://Branch0_001.material" type="Material" id=13]
+[ext_resource path="res://acBackView.jpg" type="Texture" id=14]
+[ext_resource path="res://zebraCrossing.jpg" type="Texture" id=15]
+[ext_resource path="res://menu_2.png" type="Texture" id=16]
+[ext_resource path="res://menu_3.jpeg" type="Texture" id=17]
+[ext_resource path="res://menu1.jpg" type="Texture" id=18]
+[ext_resource path="res://road.jpg" type="Texture" id=19]
+[ext_resource path="res://menu4.jpeg" type="Texture" id=20]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 19 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 18 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 16 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 17 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 20 )
+
+[node name="StreetMap" instance=ExtResource( 1 )]
+
+[node name="footpath" parent="." index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="road1" parent="." index="1"]
+transform = Transform( -7.65959e-05, 0, 0.0108402, 0, 0.0271202, 0, -0.00930784, 0, -8.9206e-05, 1.25926, -0.0559591, 0.0445767 )
+material/0 = SubResource( 3 )
+
+[node name="streetLightRod" parent="." index="2"]
+material/0 = ExtResource( 6 )
+
+[node name="bldg3Concerete" parent="Building 3" index="0"]
+material/0 = ExtResource( 12 )
+
+[node name="bldg3WindowFrame" parent="Building 3" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="bldg5Balcony" parent="Building 5" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="bldg5Walls" parent="Building 5" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="bldg5WindowFrame" parent="Building 5" index="2"]
+material/0 = ExtResource( 13 )
+
+[node name="road2" parent="." index="6"]
+transform = Transform( 0.00394535, 0, 0, 0, 0.0182782, 0, 0, 0, 0.0145804, -5.28947, 0.0357151, 0.794095 )
+material/0 = SubResource( 3 )
+
+[node name="road3" parent="." index="7"]
+material/0 = SubResource( 3 )
+
+[node name="road Crossing" parent="." index="8"]
+material/0 = SubResource( 4 )
+
+[node name="railing2" parent="Building 4/building 4 gates" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="railingRods2" parent="Building 4/building 4 gates" index="1"]
+material/0 = ExtResource( 5 )
+
+[node name="railingUpperRod2" parent="Building 4/building 4 gates" index="2"]
+material/0 = ExtResource( 3 )
+
+[node name="tree1" parent="Building 4/Building 4 trees" index="3"]
+visible = false
+
+[node name="tree2" parent="Building 4/Building 4 trees" index="4"]
+visible = false
+
+[node name="tree3" parent="Building 4/Building 4 trees" index="5"]
+transform = Transform( 0.198428, 0, 0, 0, 0.198428, 0, 0, 0, 0.198428, 174.474, -53.2043, 170.511 )
+visible = false
+
+[node name="bldg4FirstFloorGlass" parent="Building 4/main Buliding 4 " index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="bldg4FrontFacing" parent="Building 4/main Buliding 4 " index="2"]
+material/0 = SubResource( 1 )
+
+[node name="bldg4GlassPart" parent="Building 4/main Buliding 4 " index="3"]
+material/0 = SubResource( 2 )
+
+[node name="bldg2Balcony" parent="Building 2" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="bldg2WindowFrame" parent="Building 2" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="door2" parent="Building 2" index="3"]
+material/0 = ExtResource( 9 )
+
+[node name="ac1" parent="Building 1" index="0"]
+material/0 = SubResource( 5 )
+
+[node name="ac2" parent="Building 1" index="1"]
+material/0 = SubResource( 5 )
+
+[node name="bldg1Balcony" parent="Building 1" index="2"]
+material/0 = ExtResource( 10 )
+
+[node name="bldg1DoorFrame" parent="Building 1" index="3"]
+material/0 = ExtResource( 9 )
+
+[node name="bldg1DoorWall" parent="Building 1" index="4"]
+material/0 = ExtResource( 7 )
+
+[node name="bldg1FrontGlassDoor" parent="Building 1" index="5"]
+material/0 = ExtResource( 9 )
+
+[node name="bldg1Shutter" parent="Building 1" index="6"]
+material/0 = ExtResource( 5 )
+
+[node name="bldg1Wall" parent="Building 1" index="7"]
+material/0 = ExtResource( 7 )
+
+[node name="bldg1WindowFrames" parent="Building 1" index="8"]
+material/0 = ExtResource( 5 )
+
+[node name="bldg1WindowWoodFrame" parent="Building 1" index="10"]
+material/0 = ExtResource( 3 )
+
+[node name="board1" parent="Building 1/Board 1" index="0"]
+material/0 = SubResource( 6 )
+
+[node name="board1Frame" parent="Building 1/Board 1" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="board2" parent="Building 1/Board 2" index="0"]
+material/0 = SubResource( 7 )
+
+[node name="board2Frame" parent="Building 1/Board 2" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="board3" parent="Building 1/Board3" index="0"]
+material/0 = SubResource( 8 )
+
+[node name="Board3Frame" parent="Building 1/Board3" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="board4" parent="Building 1/Board4" index="0"]
+material/0 = SubResource( 9 )
+
+[node name="board4Frame" parent="Building 1/Board4" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="railing" parent="Building 1" index="15"]
+material/0 = ExtResource( 13 )
+
+[node name="railingRods" parent="Building 1" index="16"]
+material/0 = ExtResource( 8 )
+
+[node name="railingUpperRod" parent="Building 1" index="17"]
+material/0 = ExtResource( 3 )
+
+[node name="Box002" parent="Building 1/roof1" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="Box003" parent="Building 1/roof1" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="Box004" parent="Building 1/roof1" index="2"]
+material/0 = ExtResource( 4 )
+
+[node name="Box005" parent="Building 1/roof1" index="3"]
+material/0 = ExtResource( 4 )
+
+[node name="Box006" parent="Building 1/roof1" index="4"]
+material/0 = ExtResource( 4 )
+
+[node name="Box007" parent="Building 1/roof1" index="5"]
+material/0 = ExtResource( 4 )
+
+[node name="Box008" parent="Building 1/roof1" index="6"]
+material/0 = ExtResource( 4 )
+
+[node name="Box009" parent="Building 1/roof1" index="7"]
+material/0 = ExtResource( 4 )
+
+[node name="Box010" parent="Building 1/roof1" index="8"]
+material/0 = ExtResource( 4 )
+
+[node name="Box011" parent="Building 1/roof1" index="9"]
+material/0 = ExtResource( 4 )
+
+[node name="Box012" parent="Building 1/roof1" index="10"]
+material/0 = ExtResource( 4 )
+
+[node name="Box013" parent="Building 1/roof1" index="11"]
+material/0 = ExtResource( 4 )
+
+[node name="Box014" parent="Building 1/roof1" index="12"]
+material/0 = ExtResource( 4 )
+
+[node name="Box015" parent="Building 1/roof1" index="13"]
+material/0 = ExtResource( 4 )
+
+[node name="Box016" parent="Building 1/roof1" index="14"]
+material/0 = ExtResource( 4 )
+
+[node name="Box017" parent="Building 1/roof1" index="15"]
+material/0 = ExtResource( 4 )
+
+[node name="Box018" parent="Building 1/roof1" index="16"]
+material/0 = ExtResource( 4 )
+
+[node name="Box019" parent="Building 1/roof1" index="17"]
+material/0 = ExtResource( 4 )
+
+[node name="Box020" parent="Building 1/roof1" index="18"]
+material/0 = ExtResource( 4 )
+
+[node name="Box021" parent="Building 1/roof1" index="19"]
+material/0 = ExtResource( 4 )
+
+[node name="Box022" parent="Building 1/roof1" index="20"]
+material/0 = ExtResource( 4 )
+
+[node name="Box023" parent="Building 1/roof1" index="21"]
+material/0 = ExtResource( 4 )
+
+[node name="Box024" parent="Building 1/roof1" index="22"]
+material/0 = ExtResource( 4 )
+
+[node name="Box025" parent="Building 1/roof1" index="23"]
+material/0 = ExtResource( 4 )
+
+[node name="Box026" parent="Building 1/roof1" index="24"]
+material/0 = ExtResource( 4 )
+
+[node name="Box027" parent="Building 1/roof1" index="25"]
+material/0 = ExtResource( 4 )
+
+[node name="Box028" parent="Building 1/roof1" index="26"]
+material/0 = ExtResource( 4 )
+
+[node name="Box029" parent="Building 1/roof1" index="27"]
+material/0 = ExtResource( 4 )
+
+[node name="Box030" parent="Building 1/roof1" index="28"]
+material/0 = ExtResource( 4 )
+
+[node name="Box031" parent="Building 1/roof1" index="29"]
+material/0 = ExtResource( 4 )
+
+[node name="Box032" parent="Building 1/roof1" index="30"]
+material/0 = ExtResource( 4 )
+
+[node name="Box033" parent="Building 1/roof1" index="31"]
+material/0 = ExtResource( 4 )
+
+[node name="Box034" parent="Building 1/roof1" index="32"]
+material/0 = ExtResource( 4 )
+
+[node name="Box035" parent="Building 1/roof1" index="33"]
+material/0 = ExtResource( 4 )
+
+[node name="Box036" parent="Building 1/roof1" index="34"]
+material/0 = ExtResource( 4 )
+
+[node name="Box037" parent="Building 1/roof1" index="35"]
+material/0 = ExtResource( 4 )
+
+[node name="Box038" parent="Building 1/roof1" index="36"]
+material/0 = ExtResource( 4 )
+
+[node name="Box039" parent="Building 1/roof1" index="37"]
+material/0 = ExtResource( 4 )
+
+[node name="Box040" parent="Building 1/roof1" index="38"]
+material/0 = ExtResource( 4 )
+
+[node name="Box041" parent="Building 1/roof1" index="39"]
+material/0 = ExtResource( 4 )
+
+[node name="Box042" parent="Building 1/roof1" index="40"]
+material/0 = ExtResource( 4 )
+
+[node name="Box043" parent="Building 1/roof1" index="41"]
+material/0 = ExtResource( 4 )
+
+[node name="Box044" parent="Building 1/roof1" index="42"]
+material/0 = ExtResource( 4 )
+
+[node name="Box045" parent="Building 1/roof1" index="43"]
+material/0 = ExtResource( 4 )
+
+[node name="Box046" parent="Building 1/roof1" index="44"]
+material/0 = ExtResource( 4 )
+
+[node name="Box047" parent="Building 1/roof1" index="45"]
+material/0 = ExtResource( 4 )
+
+[node name="Box048" parent="Building 1/roof1" index="46"]
+material/0 = ExtResource( 4 )
+
+[node name="Box049" parent="Building 1/roof1" index="47"]
+material/0 = ExtResource( 4 )
+
+[node name="Box050" parent="Building 1/roof1" index="48"]
+material/0 = ExtResource( 4 )
+
+[node name="Box051" parent="Building 1/roof1" index="49"]
+material/0 = ExtResource( 4 )
+
+[node name="Box052" parent="Building 1/roof1" index="50"]
+material/0 = ExtResource( 4 )
+
+[node name="Box053" parent="Building 1/roof1" index="51"]
+material/0 = ExtResource( 4 )
+
+[node name="Box054" parent="Building 1/roof1" index="52"]
+material/0 = ExtResource( 4 )
+
+[node name="Box055" parent="Building 1/roof1" index="53"]
+material/0 = ExtResource( 4 )
+
+[node name="Box056" parent="Building 1/roof1" index="54"]
+material/0 = ExtResource( 4 )
+
+[node name="Box057" parent="Building 1/roof1" index="55"]
+material/0 = ExtResource( 4 )
+
+[node name="Box058" parent="Building 1/roof1" index="56"]
+material/0 = ExtResource( 4 )
+
+[node name="Box059" parent="Building 1/roof1" index="57"]
+material/0 = ExtResource( 4 )
+
+[node name="Box060" parent="Building 1/roof1" index="58"]
+material/0 = ExtResource( 4 )
+
+[node name="Box061" parent="Building 1/roof1" index="59"]
+material/0 = ExtResource( 4 )
+
+[node name="Box062" parent="Building 1/roof1" index="60"]
+material/0 = ExtResource( 4 )
+
+[node name="Box063" parent="Building 1/roof1" index="61"]
+material/0 = ExtResource( 4 )
+
+[node name="Box064" parent="Building 1/roof1" index="62"]
+material/0 = ExtResource( 4 )
+
+[node name="Box239" parent="Building 1/roof1" index="63"]
+material/0 = ExtResource( 4 )
+
+[node name="Box240" parent="Building 1/roof1" index="64"]
+material/0 = ExtResource( 4 )
+
+[node name="Box241" parent="Building 1/roof1" index="65"]
+material/0 = ExtResource( 4 )
+
+[node name="Box242" parent="Building 1/roof1" index="66"]
+material/0 = ExtResource( 4 )
+
+[node name="Box243" parent="Building 1/roof1" index="67"]
+material/0 = ExtResource( 4 )
+
+[node name="Box244" parent="Building 1/roof1" index="68"]
+material/0 = ExtResource( 4 )
+
+[node name="Box245" parent="Building 1/roof1" index="69"]
+material/0 = ExtResource( 4 )
+
+[node name="Box246" parent="Building 1/roof1" index="70"]
+material/0 = ExtResource( 4 )
+
+[node name="Box247" parent="Building 1/roof1" index="71"]
+material/0 = ExtResource( 4 )
+
+[node name="Box248" parent="Building 1/roof1" index="72"]
+material/0 = ExtResource( 4 )
+
+[node name="Box249" parent="Building 1/roof1" index="73"]
+material/0 = ExtResource( 4 )
+
+[node name="Box250" parent="Building 1/roof1" index="74"]
+material/0 = ExtResource( 4 )
+
+[node name="Box251" parent="Building 1/roof1" index="75"]
+material/0 = ExtResource( 4 )
+
+[node name="Box252" parent="Building 1/roof1" index="76"]
+material/0 = ExtResource( 4 )
+
+[node name="Box253" parent="Building 1/roof1" index="77"]
+material/0 = ExtResource( 4 )
+
+[node name="Box254" parent="Building 1/roof1" index="78"]
+material/0 = ExtResource( 4 )
+
+[node name="Box255" parent="Building 1/roof1" index="79"]
+material/0 = ExtResource( 4 )
+
+[node name="Box256" parent="Building 1/roof1" index="80"]
+material/0 = ExtResource( 4 )
+
+[node name="Box257" parent="Building 1/roof1" index="81"]
+material/0 = ExtResource( 4 )
+
+[node name="Box258" parent="Building 1/roof1" index="82"]
+material/0 = ExtResource( 4 )
+
+[node name="Box259" parent="Building 1/roof1" index="83"]
+material/0 = ExtResource( 4 )
+
+[node name="Box260" parent="Building 1/roof1" index="84"]
+material/0 = ExtResource( 4 )
+
+[node name="Box261" parent="Building 1/roof1" index="85"]
+material/0 = ExtResource( 4 )
+
+[node name="Box262" parent="Building 1/roof1" index="86"]
+material/0 = ExtResource( 4 )
+
+[node name="Box263" parent="Building 1/roof1" index="87"]
+material/0 = ExtResource( 4 )
+
+[node name="Box264" parent="Building 1/roof1" index="88"]
+material/0 = ExtResource( 4 )
+
+[node name="Box265" parent="Building 1/roof1" index="89"]
+material/0 = ExtResource( 4 )
+
+[node name="Box266" parent="Building 1/roof1" index="90"]
+material/0 = ExtResource( 4 )
+
+[node name="Box267" parent="Building 1/roof1" index="91"]
+material/0 = ExtResource( 4 )
+
+[node name="Box268" parent="Building 1/roof1" index="92"]
+material/0 = ExtResource( 4 )
+
+[node name="Box269" parent="Building 1/roof1" index="93"]
+material/0 = ExtResource( 4 )
+
+[node name="Box270" parent="Building 1/roof1" index="94"]
+material/0 = ExtResource( 4 )
+
+[node name="Box271" parent="Building 1/roof1" index="95"]
+material/0 = ExtResource( 4 )
+
+[node name="Box272" parent="Building 1/roof1" index="96"]
+material/0 = ExtResource( 4 )
+
+[node name="Box273" parent="Building 1/roof1" index="97"]
+material/0 = ExtResource( 4 )
+
+[node name="Box274" parent="Building 1/roof1" index="98"]
+material/0 = ExtResource( 4 )
+
+[node name="Box275" parent="Building 1/roof1" index="99"]
+material/0 = ExtResource( 4 )
+
+[node name="Box276" parent="Building 1/roof1" index="100"]
+material/0 = ExtResource( 4 )
+
+[node name="Box277" parent="Building 1/roof1" index="101"]
+material/0 = ExtResource( 4 )
+
+[node name="Box278" parent="Building 1/roof1" index="102"]
+material/0 = ExtResource( 4 )
+
+[node name="Box279" parent="Building 1/roof1" index="103"]
+material/0 = ExtResource( 4 )
+
+[node name="Box280" parent="Building 1/roof1" index="104"]
+material/0 = ExtResource( 4 )
+
+[node name="Box281" parent="Building 1/roof1" index="105"]
+material/0 = ExtResource( 4 )
+
+[node name="Box282" parent="Building 1/roof1" index="106"]
+material/0 = ExtResource( 4 )
+
+[node name="Box283" parent="Building 1/roof1" index="107"]
+material/0 = ExtResource( 4 )
+
+[node name="Box284" parent="Building 1/roof1" index="108"]
+material/0 = ExtResource( 4 )
+
+[node name="Box285" parent="Building 1/roof1" index="109"]
+material/0 = ExtResource( 4 )
+
+[node name="Box286" parent="Building 1/roof1" index="110"]
+material/0 = ExtResource( 4 )
+
+[node name="Box287" parent="Building 1/roof1" index="111"]
+material/0 = ExtResource( 4 )
+
+[node name="Box288" parent="Building 1/roof1" index="112"]
+material/0 = ExtResource( 4 )
+
+[node name="Box289" parent="Building 1/roof1" index="113"]
+material/0 = ExtResource( 4 )
+
+[node name="roof1Rod" parent="Building 1" index="19"]
+material/0 = ExtResource( 4 )
+
+[node name="Box071" parent="Building 1/roof2" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="Box072" parent="Building 1/roof2" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="Box073" parent="Building 1/roof2" index="2"]
+material/0 = ExtResource( 4 )
+
+[node name="Box074" parent="Building 1/roof2" index="3"]
+material/0 = ExtResource( 4 )
+
+[node name="Box075" parent="Building 1/roof2" index="4"]
+material/0 = ExtResource( 4 )
+
+[node name="Box076" parent="Building 1/roof2" index="5"]
+material/0 = ExtResource( 4 )
+
+[node name="Box077" parent="Building 1/roof2" index="6"]
+material/0 = ExtResource( 4 )
+
+[node name="Box078" parent="Building 1/roof2" index="7"]
+material/0 = ExtResource( 4 )
+
+[node name="Box079" parent="Building 1/roof2" index="8"]
+material/0 = ExtResource( 4 )
+
+[node name="Box080" parent="Building 1/roof2" index="9"]
+material/0 = ExtResource( 4 )
+
+[node name="Box081" parent="Building 1/roof2" index="10"]
+material/0 = ExtResource( 4 )
+
+[node name="Box082" parent="Building 1/roof2" index="11"]
+material/0 = ExtResource( 4 )
+
+[node name="Box083" parent="Building 1/roof2" index="12"]
+material/0 = ExtResource( 4 )
+
+[node name="Box084" parent="Building 1/roof2" index="13"]
+material/0 = ExtResource( 4 )
+
+[node name="Box085" parent="Building 1/roof2" index="14"]
+material/0 = ExtResource( 4 )
+
+[node name="Box086" parent="Building 1/roof2" index="15"]
+material/0 = ExtResource( 4 )
+
+[node name="Box087" parent="Building 1/roof2" index="16"]
+material/0 = ExtResource( 4 )
+
+[node name="Box088" parent="Building 1/roof2" index="17"]
+material/0 = ExtResource( 4 )
+
+[node name="Box089" parent="Building 1/roof2" index="18"]
+material/0 = ExtResource( 4 )
+
+[node name="Box090" parent="Building 1/roof2" index="19"]
+material/0 = ExtResource( 4 )
+
+[node name="Box091" parent="Building 1/roof2" index="20"]
+material/0 = ExtResource( 4 )
+
+[node name="Box092" parent="Building 1/roof2" index="21"]
+material/0 = ExtResource( 4 )
+
+[node name="Box093" parent="Building 1/roof2" index="22"]
+material/0 = ExtResource( 4 )
+
+[node name="Box094" parent="Building 1/roof2" index="23"]
+material/0 = ExtResource( 4 )
+
+[node name="Box095" parent="Building 1/roof2" index="24"]
+material/0 = ExtResource( 4 )
+
+[node name="Box096" parent="Building 1/roof2" index="25"]
+material/0 = ExtResource( 4 )
+
+[node name="Box097" parent="Building 1/roof2" index="26"]
+material/0 = ExtResource( 4 )
+
+[node name="Box098" parent="Building 1/roof2" index="27"]
+material/0 = ExtResource( 4 )
+
+[node name="Box099" parent="Building 1/roof2" index="28"]
+material/0 = ExtResource( 4 )
+
+[node name="Box100" parent="Building 1/roof2" index="29"]
+material/0 = ExtResource( 4 )
+
+[node name="Box101" parent="Building 1/roof2" index="30"]
+material/0 = ExtResource( 4 )
+
+[node name="Box102" parent="Building 1/roof2" index="31"]
+material/0 = ExtResource( 4 )
+
+[node name="Box103" parent="Building 1/roof2" index="32"]
+material/0 = ExtResource( 4 )
+
+[node name="Box104" parent="Building 1/roof2" index="33"]
+material/0 = ExtResource( 4 )
+
+[node name="Box105" parent="Building 1/roof2" index="34"]
+material/0 = ExtResource( 4 )
+
+[node name="Box106" parent="Building 1/roof2" index="35"]
+material/0 = ExtResource( 4 )
+
+[node name="Box107" parent="Building 1/roof2" index="36"]
+material/0 = ExtResource( 4 )
+
+[node name="Box108" parent="Building 1/roof2" index="37"]
+material/0 = ExtResource( 4 )
+
+[node name="Box109" parent="Building 1/roof2" index="38"]
+material/0 = ExtResource( 4 )
+
+[node name="Box110" parent="Building 1/roof2" index="39"]
+material/0 = ExtResource( 4 )
+
+[node name="Box111" parent="Building 1/roof2" index="40"]
+material/0 = ExtResource( 4 )
+
+[node name="Box112" parent="Building 1/roof2" index="41"]
+material/0 = ExtResource( 4 )
+
+[node name="Box113" parent="Building 1/roof2" index="42"]
+material/0 = ExtResource( 4 )
+
+[node name="Box114" parent="Building 1/roof2" index="43"]
+material/0 = ExtResource( 4 )
+
+[node name="Box115" parent="Building 1/roof2" index="44"]
+material/0 = ExtResource( 4 )
+
+[node name="Box116" parent="Building 1/roof2" index="45"]
+material/0 = ExtResource( 4 )
+
+[node name="Box117" parent="Building 1/roof2" index="46"]
+material/0 = ExtResource( 4 )
+
+[node name="Box118" parent="Building 1/roof2" index="47"]
+material/0 = ExtResource( 4 )
+
+[node name="Box119" parent="Building 1/roof2" index="48"]
+material/0 = ExtResource( 4 )
+
+[node name="Box120" parent="Building 1/roof2" index="49"]
+material/0 = ExtResource( 4 )
+
+[node name="Box121" parent="Building 1/roof2" index="50"]
+material/0 = ExtResource( 4 )
+
+[node name="Box122" parent="Building 1/roof2" index="51"]
+material/0 = ExtResource( 4 )
+
+[node name="Box123" parent="Building 1/roof2" index="52"]
+material/0 = ExtResource( 4 )
+
+[node name="Box124" parent="Building 1/roof2" index="53"]
+material/0 = ExtResource( 4 )
+
+[node name="Box125" parent="Building 1/roof2" index="54"]
+material/0 = ExtResource( 4 )
+
+[node name="Box126" parent="Building 1/roof2" index="55"]
+material/0 = ExtResource( 4 )
+
+[node name="Box127" parent="Building 1/roof2" index="56"]
+material/0 = ExtResource( 4 )
+
+[node name="Box128" parent="Building 1/roof2" index="57"]
+material/0 = ExtResource( 4 )
+
+[node name="Box129" parent="Building 1/roof2" index="58"]
+material/0 = ExtResource( 4 )
+
+[node name="Box130" parent="Building 1/roof2" index="59"]
+material/0 = ExtResource( 4 )
+
+[node name="Box131" parent="Building 1/roof2" index="60"]
+material/0 = ExtResource( 4 )
+
+[node name="Box132" parent="Building 1/roof2" index="61"]
+material/0 = ExtResource( 4 )
+
+[node name="Box133" parent="Building 1/roof2" index="62"]
+material/0 = ExtResource( 4 )
+
+[node name="Box134" parent="Building 1/roof2" index="63"]
+material/0 = ExtResource( 4 )
+
+[node name="Box135" parent="Building 1/roof2" index="64"]
+material/0 = ExtResource( 4 )
+
+[node name="Box136" parent="Building 1/roof2" index="65"]
+material/0 = ExtResource( 4 )
+
+[node name="Box137" parent="Building 1/roof2" index="66"]
+material/0 = ExtResource( 4 )
+
+[node name="Box138" parent="Building 1/roof2" index="67"]
+material/0 = ExtResource( 4 )
+
+[node name="Box139" parent="Building 1/roof2" index="68"]
+material/0 = ExtResource( 4 )
+
+[node name="Box140" parent="Building 1/roof2" index="69"]
+material/0 = ExtResource( 4 )
+
+[node name="Box141" parent="Building 1/roof2" index="70"]
+material/0 = ExtResource( 4 )
+
+[node name="Box142" parent="Building 1/roof2" index="71"]
+material/0 = ExtResource( 4 )
+
+[node name="Box143" parent="Building 1/roof2" index="72"]
+material/0 = ExtResource( 4 )
+
+[node name="Box144" parent="Building 1/roof2" index="73"]
+material/0 = ExtResource( 4 )
+
+[node name="Box145" parent="Building 1/roof2" index="74"]
+material/0 = ExtResource( 4 )
+
+[node name="Box146" parent="Building 1/roof2" index="75"]
+material/0 = ExtResource( 4 )
+
+[node name="Box147" parent="Building 1/roof2" index="76"]
+material/0 = ExtResource( 4 )
+
+[node name="Box148" parent="Building 1/roof2" index="77"]
+material/0 = ExtResource( 4 )
+
+[node name="Box149" parent="Building 1/roof2" index="78"]
+material/0 = ExtResource( 4 )
+
+[node name="Box150" parent="Building 1/roof2" index="79"]
+material/0 = ExtResource( 4 )
+
+[node name="Box151" parent="Building 1/roof2" index="80"]
+material/0 = ExtResource( 4 )
+
+[node name="Box152" parent="Building 1/roof2" index="81"]
+material/0 = ExtResource( 4 )
+
+[node name="Box153" parent="Building 1/roof2" index="82"]
+material/0 = ExtResource( 4 )
+
+[node name="Box154" parent="Building 1/roof2" index="83"]
+material/0 = ExtResource( 4 )
+
+[node name="Box155" parent="Building 1/roof2" index="84"]
+material/0 = ExtResource( 4 )
+
+[node name="Box156" parent="Building 1/roof2" index="85"]
+material/0 = ExtResource( 4 )
+
+[node name="Box157" parent="Building 1/roof2" index="86"]
+material/0 = ExtResource( 4 )
+
+[node name="Box158" parent="Building 1/roof2" index="87"]
+material/0 = ExtResource( 4 )
+
+[node name="Box159" parent="Building 1/roof2" index="88"]
+material/0 = ExtResource( 4 )
+
+[node name="Box160" parent="Building 1/roof2" index="89"]
+material/0 = ExtResource( 4 )
+
+[node name="Box161" parent="Building 1/roof2" index="90"]
+material/0 = ExtResource( 4 )
+
+[node name="Box162" parent="Building 1/roof2" index="91"]
+material/0 = ExtResource( 4 )
+
+[node name="Box163" parent="Building 1/roof2" index="92"]
+material/0 = ExtResource( 4 )
+
+[node name="Box164" parent="Building 1/roof2" index="93"]
+material/0 = ExtResource( 4 )
+
+[node name="Box165" parent="Building 1/roof2" index="94"]
+material/0 = ExtResource( 4 )
+
+[node name="Box166" parent="Building 1/roof2" index="95"]
+material/0 = ExtResource( 4 )
+
+[node name="Box167" parent="Building 1/roof2" index="96"]
+material/0 = ExtResource( 4 )
+
+[node name="Box168" parent="Building 1/roof2" index="97"]
+material/0 = ExtResource( 4 )
+
+[node name="Box169" parent="Building 1/roof2" index="98"]
+material/0 = ExtResource( 4 )
+
+[node name="Box170" parent="Building 1/roof2" index="99"]
+material/0 = ExtResource( 4 )
+
+[node name="Box171" parent="Building 1/roof2" index="100"]
+material/0 = ExtResource( 4 )
+
+[node name="Box172" parent="Building 1/roof2" index="101"]
+material/0 = ExtResource( 4 )
+
+[node name="Box173" parent="Building 1/roof2" index="102"]
+material/0 = ExtResource( 4 )
+
+[node name="Box174" parent="Building 1/roof2" index="103"]
+material/0 = ExtResource( 4 )
+
+[node name="Box175" parent="Building 1/roof2" index="104"]
+material/0 = ExtResource( 4 )
+
+[node name="Box176" parent="Building 1/roof2" index="105"]
+material/0 = ExtResource( 4 )
+
+[node name="Box177" parent="Building 1/roof2" index="106"]
+material/0 = ExtResource( 4 )
+
+[node name="Box178" parent="Building 1/roof2" index="107"]
+material/0 = ExtResource( 4 )
+
+[node name="Box179" parent="Building 1/roof2" index="108"]
+material/0 = ExtResource( 4 )
+
+[node name="Box180" parent="Building 1/roof2" index="109"]
+material/0 = ExtResource( 4 )
+
+[node name="Box181" parent="Building 1/roof2" index="110"]
+material/0 = ExtResource( 4 )
+
+[node name="Box182" parent="Building 1/roof2" index="111"]
+material/0 = ExtResource( 4 )
+
+[node name="Box183" parent="Building 1/roof2" index="112"]
+material/0 = ExtResource( 4 )
+
+[node name="Box184" parent="Building 1/roof2" index="113"]
+material/0 = ExtResource( 4 )
+
+[node name="Box185" parent="Building 1/roof2" index="114"]
+material/0 = ExtResource( 4 )
+
+[node name="Box186" parent="Building 1/roof2" index="115"]
+material/0 = ExtResource( 4 )
+
+[node name="Box187" parent="Building 1/roof2" index="116"]
+material/0 = ExtResource( 4 )
+
+[node name="Box188" parent="Building 1/roof2" index="117"]
+material/0 = ExtResource( 4 )
+
+[node name="Box189" parent="Building 1/roof2" index="118"]
+material/0 = ExtResource( 4 )
+
+[node name="Box190" parent="Building 1/roof2" index="119"]
+material/0 = ExtResource( 4 )
+
+[node name="Box191" parent="Building 1/roof2" index="120"]
+material/0 = ExtResource( 4 )
+
+[node name="Box192" parent="Building 1/roof2" index="121"]
+material/0 = ExtResource( 4 )
+
+[node name="Box193" parent="Building 1/roof2" index="122"]
+material/0 = ExtResource( 4 )
+
+[node name="Box194" parent="Building 1/roof2" index="123"]
+material/0 = ExtResource( 4 )
+
+[node name="Box195" parent="Building 1/roof2" index="124"]
+material/0 = ExtResource( 4 )
+
+[node name="Box196" parent="Building 1/roof2" index="125"]
+material/0 = ExtResource( 4 )
+
+[node name="Box197" parent="Building 1/roof2" index="126"]
+material/0 = ExtResource( 4 )
+
+[node name="Box198" parent="Building 1/roof2" index="127"]
+material/0 = ExtResource( 4 )
+
+[node name="Box199" parent="Building 1/roof2" index="128"]
+material/0 = ExtResource( 4 )
+
+[node name="Box200" parent="Building 1/roof2" index="129"]
+material/0 = ExtResource( 4 )
+
+[node name="Box201" parent="Building 1/roof2" index="130"]
+material/0 = ExtResource( 4 )
+
+[node name="Box202" parent="Building 1/roof2" index="131"]
+material/0 = ExtResource( 4 )
+
+[node name="Box203" parent="Building 1/roof2" index="132"]
+material/0 = ExtResource( 4 )
+
+[node name="Box204" parent="Building 1/roof2" index="133"]
+material/0 = ExtResource( 4 )
+
+[node name="Box205" parent="Building 1/roof2" index="134"]
+material/0 = ExtResource( 4 )
+
+[node name="Box206" parent="Building 1/roof2" index="135"]
+material/0 = ExtResource( 4 )
+
+[node name="Box207" parent="Building 1/roof2" index="136"]
+material/0 = ExtResource( 4 )
+
+[node name="Box208" parent="Building 1/roof2" index="137"]
+material/0 = ExtResource( 4 )
+
+[node name="Box209" parent="Building 1/roof2" index="138"]
+material/0 = ExtResource( 4 )
+
+[node name="Box210" parent="Building 1/roof2" index="139"]
+material/0 = ExtResource( 4 )
+
+[node name="Box211" parent="Building 1/roof2" index="140"]
+material/0 = ExtResource( 4 )
+
+[node name="Box212" parent="Building 1/roof2" index="141"]
+material/0 = ExtResource( 4 )
+
+[node name="Box213" parent="Building 1/roof2" index="142"]
+material/0 = ExtResource( 4 )
+
+[node name="Box214" parent="Building 1/roof2" index="143"]
+material/0 = ExtResource( 4 )
+
+[node name="Box215" parent="Building 1/roof2" index="144"]
+material/0 = ExtResource( 4 )
+
+[node name="Box216" parent="Building 1/roof2" index="145"]
+material/0 = ExtResource( 4 )
+
+[node name="Box217" parent="Building 1/roof2" index="146"]
+material/0 = ExtResource( 4 )
+
+[node name="Box218" parent="Building 1/roof2" index="147"]
+material/0 = ExtResource( 4 )
+
+[node name="Box219" parent="Building 1/roof2" index="148"]
+material/0 = ExtResource( 4 )
+
+[node name="Box220" parent="Building 1/roof2" index="149"]
+material/0 = ExtResource( 4 )
+
+[node name="Box221" parent="Building 1/roof2" index="150"]
+material/0 = ExtResource( 4 )
+
+[node name="Box222" parent="Building 1/roof2" index="151"]
+material/0 = ExtResource( 4 )
+
+[node name="Box223" parent="Building 1/roof2" index="152"]
+material/0 = ExtResource( 4 )
+
+[node name="Box224" parent="Building 1/roof2" index="153"]
+material/0 = ExtResource( 4 )
+
+[node name="Box225" parent="Building 1/roof2" index="154"]
+material/0 = ExtResource( 4 )
+
+[node name="Box226" parent="Building 1/roof2" index="155"]
+material/0 = ExtResource( 4 )
+
+[node name="Box227" parent="Building 1/roof2" index="156"]
+material/0 = ExtResource( 4 )
+
+[node name="Box228" parent="Building 1/roof2" index="157"]
+material/0 = ExtResource( 4 )
+
+[node name="Box229" parent="Building 1/roof2" index="158"]
+material/0 = ExtResource( 4 )
+
+[node name="Box230" parent="Building 1/roof2" index="159"]
+material/0 = ExtResource( 4 )
+
+[node name="Box231" parent="Building 1/roof2" index="160"]
+material/0 = ExtResource( 4 )
+
+[node name="Box232" parent="Building 1/roof2" index="161"]
+material/0 = ExtResource( 4 )
+
+[node name="Box233" parent="Building 1/roof2" index="162"]
+material/0 = ExtResource( 4 )
+
+[node name="Box234" parent="Building 1/roof2" index="163"]
+material/0 = ExtResource( 4 )
+
+[node name="Box235" parent="Building 1/roof2" index="164"]
+material/0 = ExtResource( 4 )
+
+[node name="Box236" parent="Building 1/roof2" index="165"]
+material/0 = ExtResource( 4 )
+
+[node name="Box237" parent="Building 1/roof2" index="166"]
+material/0 = ExtResource( 4 )
+
+[node name="Box238" parent="Building 1/roof2" index="167"]
+material/0 = ExtResource( 4 )
+
+[node name="roof2Rod" parent="Building 1" index="21"]
+material/0 = ExtResource( 3 )
+
+[node name="Box291" parent="Building 1/roof3" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="Box292" parent="Building 1/roof3" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="Box294" parent="Building 1/roof3" index="2"]
+material/0 = ExtResource( 4 )
+
+[node name="Box295" parent="Building 1/roof3" index="3"]
+material/0 = ExtResource( 4 )
+
+[node name="Box297" parent="Building 1/roof3" index="4"]
+material/0 = ExtResource( 4 )
+
+[node name="Box298" parent="Building 1/roof3" index="5"]
+material/0 = ExtResource( 4 )
+
+[node name="Box300" parent="Building 1/roof3" index="6"]
+material/0 = ExtResource( 4 )
+
+[node name="Box301" parent="Building 1/roof3" index="7"]
+material/0 = ExtResource( 4 )
+
+[node name="Box303" parent="Building 1/roof3" index="8"]
+material/0 = ExtResource( 4 )
+
+[node name="Box304" parent="Building 1/roof3" index="9"]
+material/0 = ExtResource( 4 )
+
+[node name="Box306" parent="Building 1/roof3" index="10"]
+material/0 = ExtResource( 4 )
+
+[node name="Box307" parent="Building 1/roof3" index="11"]
+material/0 = ExtResource( 4 )
+
+[node name="Box309" parent="Building 1/roof3" index="12"]
+material/0 = ExtResource( 4 )
+
+[node name="Box310" parent="Building 1/roof3" index="13"]
+material/0 = ExtResource( 4 )
+
+[node name="Box312" parent="Building 1/roof3" index="14"]
+material/0 = ExtResource( 4 )
+
+[node name="Box313" parent="Building 1/roof3" index="15"]
+material/0 = ExtResource( 4 )
+
+[node name="Box315" parent="Building 1/roof3" index="16"]
+material/0 = ExtResource( 4 )
+
+[node name="Box316" parent="Building 1/roof3" index="17"]
+material/0 = ExtResource( 4 )
+
+[node name="Box318" parent="Building 1/roof3" index="18"]
+material/0 = ExtResource( 4 )
+
+[node name="Box319" parent="Building 1/roof3" index="19"]
+material/0 = ExtResource( 4 )
+
+[node name="Box321" parent="Building 1/roof3" index="20"]
+material/0 = ExtResource( 4 )
+
+[node name="Box322" parent="Building 1/roof3" index="21"]
+material/0 = ExtResource( 4 )
+
+[node name="Box324" parent="Building 1/roof3" index="22"]
+material/0 = ExtResource( 4 )
+
+[node name="Box325" parent="Building 1/roof3" index="23"]
+material/0 = ExtResource( 4 )
+
+[node name="Box327" parent="Building 1/roof3" index="24"]
+material/0 = ExtResource( 4 )
+
+[node name="Box328" parent="Building 1/roof3" index="25"]
+material/0 = ExtResource( 4 )
+
+[node name="Box330" parent="Building 1/roof3" index="26"]
+material/0 = ExtResource( 4 )
+
+[node name="Box331" parent="Building 1/roof3" index="27"]
+material/0 = ExtResource( 4 )
+
+[node name="Box333" parent="Building 1/roof3" index="28"]
+material/0 = ExtResource( 4 )
+
+[node name="Box334" parent="Building 1/roof3" index="29"]
+material/0 = ExtResource( 4 )
+
+[node name="Box336" parent="Building 1/roof3" index="30"]
+material/0 = ExtResource( 4 )
+
+[node name="Box337" parent="Building 1/roof3" index="31"]
+material/0 = ExtResource( 4 )
+
+[node name="Box339" parent="Building 1/roof3" index="32"]
+material/0 = ExtResource( 4 )
+
+[node name="Box340" parent="Building 1/roof3" index="33"]
+material/0 = ExtResource( 4 )
+
+[node name="Box342" parent="Building 1/roof3" index="34"]
+material/0 = ExtResource( 4 )
+
+[node name="Box343" parent="Building 1/roof3" index="35"]
+material/0 = ExtResource( 4 )
+
+[node name="Box345" parent="Building 1/roof3" index="36"]
+material/0 = ExtResource( 4 )
+
+[node name="Box346" parent="Building 1/roof3" index="37"]
+material/0 = ExtResource( 4 )
+
+[node name="Box348" parent="Building 1/roof3" index="38"]
+material/0 = ExtResource( 4 )
+
+[node name="Box349" parent="Building 1/roof3" index="39"]
+material/0 = ExtResource( 4 )
+
+[node name="Box351" parent="Building 1/roof3" index="40"]
+material/0 = ExtResource( 4 )
+
+[node name="Box352" parent="Building 1/roof3" index="41"]
+material/0 = ExtResource( 4 )
+
+[node name="roof3Rod" parent="Building 1" index="23"]
+material/0 = ExtResource( 3 )
+
+[node name="support1" parent="Building 1" index="24"]
+material/0 = ExtResource( 9 )
+
+[node name="support2" parent="Building 1" index="25"]
+material/0 = ExtResource( 9 )

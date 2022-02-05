@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Survivor.glb" type="PackedScene" id=1]
+[ext_resource path="res://AceRifle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Animations/LoopAnimations/RunForward_Loop.tres" type="Animation" id=3]
+[ext_resource path="res://Animations/LoopAnimations/WalkBackwardLeft_Loop.tres" type="Animation" id=4]
+[ext_resource path="res://Animations/LoopAnimations/WalkForward_Loop.tres" type="Animation" id=5]
+[ext_resource path="res://Animations/LoopAnimations/Idle_Loop.tres" type="Animation" id=6]
+
+[node name="Survivor" instance=ExtResource( 1 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
+[node name="BoneAttachment" parent="Armature/Skeleton" index="0"]
+transform = Transform( 0.859373, -0.313639, -0.403867, 0.501088, 0.359093, 0.787377, -0.101926, -0.879024, 0.465756, -5.09405, 5.31192, -152.607 )
+
+[node name="BoneAttachment2" parent="Armature/Skeleton" index="1"]
+transform = Transform( -0.580821, 0.40031, 0.708801, 0.790511, 0.069576, 0.608483, 0.194267, 0.913735, -0.356861, -10.0058, 65.2757, -146.907 )
+
+[node name="BoneAttachment3" parent="Armature/Skeleton" index="2"]
+transform = Transform( 0.422573, -0.596952, 0.681968, -0.532594, 0.44527, 0.719777, -0.733332, -0.66737, -0.129774, -14.7257, 63.1493, -149.096 )
+
+[node name="BoneAttachment4" parent="Armature/Skeleton" index="3"]
+transform = Transform( 0.271561, -0.683471, 0.677585, -0.396436, 0.5621, 0.725866, -0.876979, -0.465735, -0.118308, -14.459, 66.3069, -148.004 )
+
+[node name="BoneAttachment5" parent="Armature/Skeleton" index="4"]
+transform = Transform( 0.599439, -0.37032, 0.709603, -0.692104, 0.205529, 0.691917, -0.402075, -0.905881, -0.133098, -15.0082, 60.2775, -148.853 )
+
+[node name="BoneAttachment6" parent="Armature/Skeleton" index="5"]
+transform = Transform( 0.578853, -0.360287, 0.73152, -0.618309, 0.390932, 0.68181, -0.531622, -0.846974, 0.00352367, -14.9982, 58.26, -147.057 )
+
+[node name="BoneAttachment7" parent="Armature/Skeleton" index="6"]
+transform = Transform( 0.865404, -0.485278, 0.124819, -0.3247, -0.353387, 0.877318, -0.381633, -0.799764, -0.463393, -9.81465, 31.0862, -142.05 )
+
+[node name="BoneAttachment8" parent="Armature/Skeleton" index="7"]
+transform = Transform( -0.97184, -0.228252, -0.0585393, -0.224061, 0.972034, -0.0703237, 0.0729536, -0.055227, -0.995805, -11.9342, 38.9784, -141.686 )
+
+[node name="BoneAttachment9" parent="Armature/Skeleton" index="8"]
+transform = Transform( 0.0502393, 0.994626, 0.0905254, 0.997852, -0.0461744, -0.0464525, -0.0420229, 0.0926647, -0.99481, -10.067, 31.7316, -138.091 )
+
+[node name="BoneAttachment10" parent="Armature/Skeleton" index="9"]
+transform = Transform( 0.475539, 0.878516, -0.045518, 0.864342, -0.476239, -0.161581, -0.163629, 0.0374947, -0.985809, -9.65624, 31.4272, -136.417 )
+
+[node name="BoneAttachment11" parent="Armature/Skeleton" index="10"]
+transform = Transform( 0.474221, 0.87793, -0.0659703, 0.864478, -0.478522, -0.153925, -0.166704, 0.0159648, -0.985877, -10.2383, 30.4583, -134.287 )
+
+[node name="BoneAttachment12" parent="Armature/Skeleton" index="11"]
+transform = Transform( 0.978499, -5.94062e-07, 0.206252, -0.206252, -1.93114e-06, 0.978499, -1.90128e-07, -1, -1.76579e-06, 15.3325, 29.4496, -0.00056076 )
+
+[node name="BoneAttachment13" parent="Armature/Skeleton" index="12"]
+transform = Transform( 0.589488, 0.000288819, -0.807777, 0.807777, -0.00021081, 0.589488, 5.74345e-09, -1, -0.000357504, -12.5763, -13.7679, -0.558424 )
+
+[node name="GunAttachment" type="BoneAttachment" parent="Armature/Skeleton" index="15"]
+transform = Transform( -0.213931, -0.975748, 0.0463608, -0.976807, 0.213243, -0.0193698, 0.00901388, -0.0494294, -0.998737, -14.8299, 23.536, -139.722 )
+bone_name = "swat_RightHandThumb1"
+
+[node name="Spatial" type="Spatial" parent="Armature/Skeleton/GunAttachment" index="0"]
+transform = Transform( 1, 0, -3.72529e-09, 2.98023e-08, 1, -3.49246e-09, 3.72529e-09, 9.77889e-09, 1, 0.165243, 0.383784, -9.24144 )
+
+[node name="AceRifle" parent="Armature/Skeleton/GunAttachment/Spatial" index="0" instance=ExtResource( 2 )]
+transform = Transform( 0.981413, 0.191059, 0.0165786, -0.0931367, 0.550421, -0.829656, -0.167638, 0.812718, 0.557999, -29.0078, -10.7945, -6.68099 )
+
+[node name="AnimationPlayer" parent="." index="214"]
+anims/Idle_Loop = ExtResource( 6 )
+anims/RunForward_Loop = ExtResource( 3 )
+anims/WalkBackwardLeft_Loop = ExtResource( 4 )
+anims/WalkForward_Loop = ExtResource( 5 )
