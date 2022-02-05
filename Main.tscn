@@ -151,14 +151,35 @@ shadow_enabled = true
 environment = SubResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0729327, -8.82898 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157453, -8.82898 )
 
 [node name="AnimationTree" parent="Player" index="1"]
-parameters/Blend2/blend_amount = 0.0
-"parameters/TimeScale 2/scale" = 2.2
-"parameters/TimeScale 3/scale" = 2.2
+"parameters/TimeScale 2/scale" = 0.01
+"parameters/TimeScale 3/scale" = 0.01
+
+[node name="Skeleton" parent="Player/Mesh/Survivor/Armature" index="0"]
+bones/6/bound_children = [  ]
+bones/16/bound_children = [  ]
+bones/19/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/25/bound_children = [  ]
+bones/28/bound_children = [  ]
+bones/33/bound_children = [  ]
+bones/35/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/44/bound_children = [  ]
+bones/47/bound_children = [  ]
+bones/51/bound_children = [  ]
+bones/55/bound_children = [  ]
+
+[node name="spine_ik" parent="Player/Mesh/Survivor/Armature/Skeleton" index="16"]
+root_bone = "swat_Hips"
+tip_bone = "swat_Spine"
+use_magnet = true
 
 [node name="StreetMap" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105739, 0 )
 
 [editable path="Player"]
+[editable path="Player/Mesh/Survivor"]

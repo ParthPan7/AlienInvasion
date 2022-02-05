@@ -60,10 +60,12 @@ func _physics_process(delta):
 		$Status/Aim.color = Color("ff6666")
 		if !$AnimationTree.get("parameters/roll/active"):
 			$AnimationTree.set("parameters/aim_transition/current", 0)
+			$Mesh/Survivor/Armature/Skeleton/spine_ik.start()
 	else:
 		$Status/Aim.color = Color("ffffff")
 		$AnimationTree.set("parameters/aim_transition/current", 1)
-	
+		$Mesh/Survivor/Armature/Skeleton/spine_ik.stop()
+		$Mesh/Survivor/Armature/Skeleton.clear_bones_global_pose_override()
 	
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
 	
@@ -92,8 +94,8 @@ func _physics_process(delta):
 			direction = $Camroot/h.global_transform.basis.z
 	
 	velocity = lerp(velocity, direction * movement_speed, delta * acceleration)
-
-	move_and_slide(velocity + Vector3.DOWN * vertical_velocity, Vector3.UP)
+	if !Input.is_action_pressed("aim"):
+		move_and_slide(velocity + Vector3.DOWN * vertical_velocity, Vector3.UP)
 	
 	if !is_on_floor():
 		vertical_velocity += gravity * delta
