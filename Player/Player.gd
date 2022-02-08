@@ -4,7 +4,7 @@ var direction = Vector3.BACK
 var velocity = Vector3.ZERO
 var strafe_dir = Vector3.ZERO
 var strafe = Vector3.ZERO
-
+var audio_fire = null
 var aim_turn = 0
 var ray_cast = null
 
@@ -22,6 +22,7 @@ var roll_magnitude = 17
 func _ready():
 	ray_cast = $Camroot/h/v/Camera/RayCast
 	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
+	audio_fire = preload("res://Audio/Rifle_fire.wav")
 	# Sometimes in the level design you might need to rotate the Player object itself
 	# So changing the direction at the beginning
 
@@ -46,6 +47,8 @@ func _input(event):
 
 func fireRifle():
 	if Input.is_action_pressed("aim") && Input.is_action_just_pressed("fire"):
+		$RifleAudioStreamPlayer.stream.audio_stream = audio_fire
+		$RifleAudioStreamPlayer.play()
 		if ray_cast.is_colliding():
 			#print("Hello")
 			var target = ray_cast.get_collider()

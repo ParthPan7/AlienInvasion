@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Player/scope43.png" type="Texture" id=1]
 [ext_resource path="res://Player/Camera.gd" type="Script" id=2]
@@ -5264,7 +5264,7 @@ nodes/strafe/node = SubResource( 72 )
 nodes/strafe/position = Vector2( -400, 400 )
 nodes/walk_scale/node = SubResource( 43 )
 nodes/walk_scale/position = Vector2( 9.44357, 361.25 )
-node_connections = [ "output", 0, "roll", "run_scale", 0, "Animation 3", "walk_scale", 0, "strafe", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "TimeScale 3", 0, "Animation 5", "roll_scale", 0, "Animation 4", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "TimeScale 2", 0, "Animation 2", "TimeScale", 0, "Blend2" ]
+node_connections = [ "output", 0, "roll", "TimeScale 2", 0, "Animation 2", "TimeScale", 0, "Blend2", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "TimeScale 3", 0, "Animation 5", "roll_scale", 0, "Animation 4", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "run_scale", 0, "Animation 3", "walk_scale", 0, "strafe", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3" ]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.42385
@@ -5300,6 +5300,8 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( -29.0078, -10.7945, -6.68099 ), Vector3( -29.008, -10.795, -9.681 ), Vector3( -29.008, -10.795, -6.681 ) ]
 }
+
+[sub_resource type="AudioStreamRandomPitch" id=80]
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 3 )
@@ -5347,6 +5349,22 @@ shape = SubResource( 1 )
 [node name="Mesh" type="Spatial" parent="."]
 
 [node name="Survivor" parent="Mesh" instance=ExtResource( 19 )]
+
+[node name="Skeleton" parent="Mesh/Survivor/Armature" index="0"]
+bones/6/bound_children = [ NodePath("BoneAttachment") ]
+bones/16/bound_children = [ NodePath("BoneAttachment2") ]
+bones/19/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment4") ]
+bones/25/bound_children = [ NodePath("BoneAttachment5") ]
+bones/28/bound_children = [ NodePath("BoneAttachment6") ]
+bones/33/bound_children = [ NodePath("GunAttachment") ]
+bones/35/bound_children = [ NodePath("BoneAttachment7") ]
+bones/38/bound_children = [ NodePath("BoneAttachment8") ]
+bones/41/bound_children = [ NodePath("BoneAttachment9") ]
+bones/44/bound_children = [ NodePath("BoneAttachment10") ]
+bones/47/bound_children = [ NodePath("BoneAttachment11") ]
+bones/51/bound_children = [ NodePath("BoneAttachment12") ]
+bones/55/bound_children = [ NodePath("BoneAttachment13") ]
 
 [node name="BoneAttachment" parent="Mesh/Survivor/Armature/Skeleton" index="0"]
 transform = Transform( 0.859504, -0.312233, -0.404678, 0.500972, 0.357553, 0.788152, -0.101393, -0.880151, 0.463738, -5.05515, 5.26329, -152.633 )
@@ -5460,5 +5478,8 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RifleAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 80 )
 
 [editable path="Mesh/Survivor"]
