@@ -1,9 +1,10 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Player/scope43.png" type="Texture" id=1]
 [ext_resource path="res://Player/Camera.gd" type="Script" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://RifleFireAnimation.gd" type="Script" id=4]
+[ext_resource path="res://ui/flash1.png" type="Texture" id=5]
 [ext_resource path="res://Player/Status.gd" type="Script" id=18]
 [ext_resource path="res://Survivor.tscn" type="PackedScene" id=19]
 
@@ -5264,7 +5265,7 @@ nodes/strafe/node = SubResource( 72 )
 nodes/strafe/position = Vector2( -400, 400 )
 nodes/walk_scale/node = SubResource( 43 )
 nodes/walk_scale/position = Vector2( 9.44357, 361.25 )
-node_connections = [ "output", 0, "roll", "TimeScale 2", 0, "Animation 2", "TimeScale", 0, "Blend2", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "TimeScale 3", 0, "Animation 5", "roll_scale", 0, "Animation 4", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "run_scale", 0, "Animation 3", "walk_scale", 0, "strafe", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3" ]
+node_connections = [ "output", 0, "roll", "TimeScale", 0, "Blend2", "roll_scale", 0, "Animation 4", "walk_scale", 0, "strafe", "run_scale", 0, "Animation 3", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "TimeScale 2", 0, "Animation 2", "TimeScale 3", 0, "Animation 5", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale" ]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.42385
@@ -5300,6 +5301,101 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( -29.0078, -10.7945, -6.68099 ), Vector3( -29.008, -10.795, -9.681 ), Vector3( -29.008, -10.795, -6.681 ) ]
 }
+
+[sub_resource type="ParticlesMaterial" id=84]
+gravity = Vector3( 0, 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale = 0.85
+
+[sub_resource type="SpatialMaterial" id=82]
+flags_transparent = true
+flags_unshaded = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=83]
+material = SubResource( 82 )
+
+[sub_resource type="Animation" id=85]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Streaks:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "muzzle_flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Streaks:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Curve" id=90]
+_data = [ Vector2( 0.00451468, 0.0272727 ), -4.25101, 0.0, 0, 0, Vector2( 0.0948081, 1 ), 12.7014, -0.0223731, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=91]
+curve = SubResource( 90 )
+
+[sub_resource type="ParticlesMaterial" id=89]
+gravity = Vector3( 0, 0, -700 )
+scale_curve = SubResource( 91 )
+
+[sub_resource type="SpatialMaterial" id=88]
+albedo_color = Color( 0.894118, 0.886275, 0.133333, 1 )
+emission_enabled = true
+emission = Color( 0.87451, 0.784314, 0.172549, 1 )
+emission_energy = 13.72
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=87]
+material = SubResource( 88 )
+size = Vector3( 0.03, 0.03, 12 )
 
 [sub_resource type="AudioStreamRandomPitch" id=80]
 
@@ -5351,6 +5447,7 @@ shape = SubResource( 1 )
 [node name="Survivor" parent="Mesh" instance=ExtResource( 19 )]
 
 [node name="Skeleton" parent="Mesh/Survivor/Armature" index="0"]
+bones/4/bound_children = [ NodePath("NeckBone") ]
 bones/6/bound_children = [ NodePath("BoneAttachment") ]
 bones/16/bound_children = [ NodePath("BoneAttachment2") ]
 bones/19/bound_children = [ NodePath("BoneAttachment3") ]
@@ -5414,6 +5511,30 @@ script = ExtResource( 4 )
 [node name="RifleFireAnimation" type="AnimationPlayer" parent="Mesh/Survivor/Armature/Skeleton/GunAttachment/Spatial/AceRifle" index="3"]
 anims/RESET = SubResource( 79 )
 anims/RifleFireAnimation = SubResource( 78 )
+
+[node name="NeckBone" type="BoneAttachment" parent="Mesh/Survivor/Armature/Skeleton" index="16"]
+transform = Transform( 0.802462, -0.3001, -0.515747, 0.595891, 0.357943, 0.718881, -0.0311287, -0.884204, 0.466063, -1.64585, 0.955508, -146.075 )
+visible = false
+bone_name = "swat_Neck"
+
+[node name="MuzzleFlash" type="Particles" parent="Mesh/Survivor/Armature/Skeleton/NeckBone"]
+transform = Transform( 114.637, 4.44697, 85.1273, -42.8715, 126.315, 51.1347, -73.6782, -66.5804, 102.697, 73.3556, 45.4079, 84.5225 )
+amount = 1
+speed_scale = 8.0
+process_material = SubResource( 84 )
+draw_pass_1 = SubResource( 83 )
+
+[node name="MuzzleFlashAnimation" type="AnimationPlayer" parent="Mesh/Survivor/Armature/Skeleton/NeckBone"]
+playback_speed = 8.0
+anims/RESET = SubResource( 85 )
+anims/muzzle_flash = SubResource( 86 )
+
+[node name="Streaks" type="Particles" parent="Mesh/Survivor/Armature/Skeleton/NeckBone"]
+transform = Transform( -122.138, 6.63031, -73.7998, 38.5857, 127.161, -52.4349, 63.2575, -64.7636, -110.509, 51.1119, 33.8329, 56.647 )
+amount = 1
+speed_scale = 8.0
+process_material = SubResource( 89 )
+draw_pass_1 = SubResource( 87 )
 
 [node name="Camroot" type="Spatial" parent="."]
 script = ExtResource( 2 )
