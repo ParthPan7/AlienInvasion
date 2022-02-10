@@ -8,6 +8,7 @@ var audio_fire = null
 var aim_turn = 0
 var ray_cast = null
 var neck_attachment= null
+var neck_attachment_muzzle = null
 var vertical_velocity = 0
 var gravity = 20
 
@@ -22,6 +23,7 @@ var roll_magnitude = 17
 func _ready():
 	ray_cast = $Camroot/h/v/Camera/RayCast
 	neck_attachment = $Mesh/Survivor/Armature/Skeleton/NeckBone
+	neck_attachment_muzzle = $Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle
 	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
 	audio_fire = preload("res://Audio/Rifle_fire.wav")
 	# Sometimes in the level design you might need to rotate the Player object itself
@@ -51,7 +53,7 @@ func fireRifle():
 		$RifleAudioStreamPlayer.stream.audio_stream = audio_fire
 		$RifleAudioStreamPlayer.play()
 		neck_attachment.visible = true
-		neck_attachment.get_node("MuzzleFlashAnimation").play()
+		neck_attachment_muzzle.get_node("MuzzleFlashAnimation").play("muzzle_flash")
 		if ray_cast.is_colliding():
 			#print("Hello")
 			var target = ray_cast.get_collider()
@@ -60,7 +62,7 @@ func fireRifle():
 				print("Enemy")
 	else:
 		neck_attachment.visible = false
-		neck_attachment.get_node("MuzzleFlashAnimation").stop()
+		neck_attachment_muzzle.get_node("MuzzleFlashAnimation").stop()
 
 func _physics_process(delta):
 	fireRifle()
