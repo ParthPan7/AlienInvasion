@@ -158,6 +158,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0729327, -8.82898 )
 "parameters/TimeScale 2/scale" = 2.2
 "parameters/TimeScale 3/scale" = 2.2
 
+[node name="Skeleton" parent="Player/Mesh/Survivor/Armature" index="0"]
+bones/4/bound_children = [ NodePath("NeckBone") ]
+bones/6/bound_children = [ NodePath("BoneAttachment") ]
+bones/16/bound_children = [ NodePath("BoneAttachment2") ]
+bones/19/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment4") ]
+bones/25/bound_children = [ NodePath("BoneAttachment5") ]
+bones/28/bound_children = [ NodePath("BoneAttachment6") ]
+bones/33/bound_children = [ NodePath("GunAttachment") ]
+bones/35/bound_children = [ NodePath("BoneAttachment7") ]
+bones/38/bound_children = [ NodePath("BoneAttachment8") ]
+bones/41/bound_children = [ NodePath("BoneAttachment9") ]
+bones/44/bound_children = [ NodePath("BoneAttachment10") ]
+bones/47/bound_children = [ NodePath("BoneAttachment11") ]
+bones/51/bound_children = [ NodePath("BoneAttachment12") ]
+bones/55/bound_children = [ NodePath("BoneAttachment13") ]
+
 [node name="BoneAttachment" parent="Player/Mesh/Survivor/Armature/Skeleton" index="0"]
 transform = Transform( 0.859504, -0.312233, -0.404678, 0.500972, 0.357553, 0.788152, -0.101393, -0.880151, 0.463738, -5.05515, 5.26329, -152.633 )
 
@@ -202,13 +219,6 @@ transform = Transform( -0.213867, -0.975764, 0.0463119, -0.976813, 0.213136, -0.
 
 [node name="NeckBone" parent="Player/Mesh/Survivor/Armature/Skeleton" index="16"]
 transform = Transform( 0.802462, -0.3001, -0.515747, 0.595891, 0.357943, 0.718881, -0.0311287, -0.884204, 0.466063, -1.64585, 0.955508, -146.075 )
-visible = false
-
-[node name="MuzzleFlash" parent="Player/Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle" index="1"]
-visible = true
-
-[node name="Streaks" parent="Player/Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle" index="2"]
-visible = true
 
 [node name="Spatial" type="Spatial" parent="Player/Mesh/Survivor/Armature/Skeleton/NeckBone" index="1"]
 transform = Transform( 114.637, 4.44696, 85.1273, -42.8715, 126.315, 51.1347, -73.6782, -66.5804, 102.697, 747.467, 312.259, 978.113 )

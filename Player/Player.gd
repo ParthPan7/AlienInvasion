@@ -11,7 +11,7 @@ var neck_attachment= null
 var neck_attachment_muzzle = null
 var vertical_velocity = 0
 var gravity = 20
-
+var damage  = 10
 var movement_speed = 0
 var walk_speed = 1.5
 var run_speed = 5
@@ -59,7 +59,8 @@ func fireRifle():
 			var target = ray_cast.get_collider()
 			print(target)
 			if target.is_in_group("Enemy"):
-				print("Enemy")
+			   target.health -= damage
+			   print("Enemy")
 	else:
 		neck_attachment.visible = false
 		neck_attachment_muzzle.get_node("MuzzleFlashAnimation").stop()

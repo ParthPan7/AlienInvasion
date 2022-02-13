@@ -5231,7 +5231,7 @@ blend_point_4/pos = Vector2( 0, -1 )
 [sub_resource type="AnimationNodeTimeScale" id=43]
 
 [sub_resource type="AnimationNodeBlendTree" id=66]
-graph_offset = Vector2( -343.46, 3.75 )
+graph_offset = Vector2( 207.605, 32.25 )
 nodes/Animation/node = SubResource( 29 )
 nodes/Animation/position = Vector2( 100, 260 )
 "nodes/Animation 2/node" = SubResource( 74 )
@@ -5265,7 +5265,7 @@ nodes/strafe/node = SubResource( 72 )
 nodes/strafe/position = Vector2( -400, 400 )
 nodes/walk_scale/node = SubResource( 43 )
 nodes/walk_scale/position = Vector2( 9.44357, 361.25 )
-node_connections = [ "output", 0, "roll", "roll_scale", 0, "Animation 4", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "TimeScale 3", 0, "Animation 5", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "walk_scale", 0, "strafe", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "TimeScale", 0, "Blend2", "TimeScale 2", 0, "Animation 2", "run_scale", 0, "Animation 3" ]
+node_connections = [ "output", 0, "roll", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "TimeScale", 0, "Blend2", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "TimeScale 3", 0, "Animation 5", "walk_scale", 0, "strafe", "run_scale", 0, "Animation 3", "TimeScale 2", 0, "Animation 2", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "roll_scale", 0, "Animation 4" ]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.42385
@@ -5447,23 +5447,6 @@ shape = SubResource( 1 )
 
 [node name="Survivor" parent="Mesh" instance=ExtResource( 19 )]
 
-[node name="Skeleton" parent="Mesh/Survivor/Armature" index="0"]
-bones/4/bound_children = [ NodePath("NeckBone") ]
-bones/6/bound_children = [ NodePath("BoneAttachment") ]
-bones/16/bound_children = [ NodePath("BoneAttachment2") ]
-bones/19/bound_children = [ NodePath("BoneAttachment3") ]
-bones/22/bound_children = [ NodePath("BoneAttachment4") ]
-bones/25/bound_children = [ NodePath("BoneAttachment5") ]
-bones/28/bound_children = [ NodePath("BoneAttachment6") ]
-bones/33/bound_children = [ NodePath("GunAttachment") ]
-bones/35/bound_children = [ NodePath("BoneAttachment7") ]
-bones/38/bound_children = [ NodePath("BoneAttachment8") ]
-bones/41/bound_children = [ NodePath("BoneAttachment9") ]
-bones/44/bound_children = [ NodePath("BoneAttachment10") ]
-bones/47/bound_children = [ NodePath("BoneAttachment11") ]
-bones/51/bound_children = [ NodePath("BoneAttachment12") ]
-bones/55/bound_children = [ NodePath("BoneAttachment13") ]
-
 [node name="BoneAttachment" parent="Mesh/Survivor/Armature/Skeleton" index="0"]
 transform = Transform( 0.859504, -0.312233, -0.404678, 0.500972, 0.357553, 0.788152, -0.101393, -0.880151, 0.463738, -5.05515, 5.26329, -152.633 )
 
@@ -5515,6 +5498,7 @@ anims/RifleFireAnimation = SubResource( 78 )
 
 [node name="NeckBone" type="BoneAttachment" parent="Mesh/Survivor/Armature/Skeleton" index="16"]
 transform = Transform( 0.802462, -0.3001, -0.515747, 0.595891, 0.357943, 0.718881, -0.0311287, -0.884204, 0.466063, -1.64585, 0.955508, -146.075 )
+visible = false
 bone_name = "swat_Neck"
 
 [node name="Muzzle" type="Spatial" parent="Mesh/Survivor/Armature/Skeleton/NeckBone"]
@@ -5527,7 +5511,6 @@ anims/muzzle_flash = SubResource( 86 )
 
 [node name="MuzzleFlash" type="Particles" parent="Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle"]
 transform = Transform( 114.637, 4.44697, 85.1273, -42.8715, 126.315, 51.1347, -73.6782, -66.5804, 102.697, 73.3556, 45.4079, 84.5225 )
-visible = false
 amount = 1
 speed_scale = 8.0
 process_material = SubResource( 84 )
@@ -5535,7 +5518,6 @@ draw_pass_1 = SubResource( 83 )
 
 [node name="Streaks" type="Particles" parent="Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle"]
 transform = Transform( -122.138, 6.63031, -73.7998, 38.5857, 127.161, -52.4349, 63.2575, -64.7636, -110.509, 51.1119, 33.8329, 56.647 )
-visible = false
 amount = 1
 speed_scale = 8.0
 process_material = SubResource( 89 )
