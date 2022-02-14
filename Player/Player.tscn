@@ -5265,7 +5265,7 @@ nodes/strafe/node = SubResource( 72 )
 nodes/strafe/position = Vector2( -400, 400 )
 nodes/walk_scale/node = SubResource( 43 )
 nodes/walk_scale/position = Vector2( 9.44357, 361.25 )
-node_connections = [ "output", 0, "roll", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "TimeScale", 0, "Blend2", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "TimeScale 3", 0, "Animation 5", "walk_scale", 0, "strafe", "run_scale", 0, "Animation 3", "TimeScale 2", 0, "Animation 2", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "roll_scale", 0, "Animation 4" ]
+node_connections = [ "output", 0, "roll", "iwr_blend", 0, "Animation", "iwr_blend", 1, "walk_scale", "iwr_blend", 2, "run_scale", "TimeScale", 0, "Blend2", "TimeScale 2", 0, "Animation 2", "TimeScale 3", 0, "Animation 5", "aim_transition", 0, "TimeScale", "aim_transition", 1, "iwr_blend", "Blend2", 0, "TimeScale 2", "Blend2", 1, "TimeScale 3", "roll", 0, "aim_transition", "roll", 1, "roll_scale", "run_scale", 0, "Animation 3", "roll_scale", 0, "Animation 4", "walk_scale", 0, "strafe" ]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.42385
@@ -5331,7 +5331,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=86]
 resource_name = "muzzle_flash"
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Muzzle/MuzzleFlash:visible")
 tracks/0/interp = 1

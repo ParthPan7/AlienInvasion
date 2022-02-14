@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Grid.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -82,6 +82,8 @@ glow_intensity = 7.1
 glow_strength = 0.61
 glow_bloom = 0.12
 
+[sub_resource type="BoxShape" id=10]
+
 [node name="Main" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -146,13 +148,19 @@ shape = SubResource( 7 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.829081, 0.311429, -0.464368, -0.0172758, 0.815855, 0.577998, 0.558862, 0.487229, -0.671029, 0, 23.9287, 0 )
+light_energy = 0.0
+light_indirect_energy = 0.597
+light_negative = true
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 9 )
 
+[node name="KinematicBody" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00592, 1.12175, -1.50984 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0729327, -8.82898 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140411, -8.82898 )
 
 [node name="AnimationTree" parent="Player" index="1"]
 "parameters/TimeScale 2/scale" = 2.2
@@ -175,59 +183,20 @@ bones/47/bound_children = [ NodePath("BoneAttachment11") ]
 bones/51/bound_children = [ NodePath("BoneAttachment12") ]
 bones/55/bound_children = [ NodePath("BoneAttachment13") ]
 
-[node name="BoneAttachment" parent="Player/Mesh/Survivor/Armature/Skeleton" index="0"]
-transform = Transform( 0.859504, -0.312233, -0.404678, 0.500972, 0.357553, 0.788152, -0.101393, -0.880151, 0.463738, -5.05515, 5.26329, -152.633 )
-
-[node name="BoneAttachment2" parent="Player/Mesh/Survivor/Armature/Skeleton" index="1"]
-transform = Transform( -0.580405, 0.40069, 0.708927, 0.790879, 0.0699546, 0.607962, 0.194012, 0.913539, -0.3575, -9.9891, 65.2443, -146.939 )
-
-[node name="BoneAttachment3" parent="Player/Mesh/Survivor/Armature/Skeleton" index="2"]
-transform = Transform( 0.424176, -0.595849, 0.681938, -0.534204, 0.443421, 0.719726, -0.731233, -0.669584, -0.130216, -14.7004, 63.1052, -149.131 )
-
-[node name="BoneAttachment4" parent="Player/Mesh/Survivor/Armature/Skeleton" index="3"]
-transform = Transform( 0.271913, -0.683552, 0.677363, -0.397007, 0.56151, 0.726012, -0.876612, -0.46633, -0.118693, -14.444, 66.2722, -148.039 )
-
-[node name="BoneAttachment5" parent="Player/Mesh/Survivor/Armature/Skeleton" index="4"]
-transform = Transform( 0.599143, -0.371152, 0.709418, -0.69185, 0.205939, 0.69205, -0.402953, -0.905447, -0.133395, -14.9979, 60.2494, -148.886 )
-
-[node name="BoneAttachment6" parent="Player/Mesh/Survivor/Armature/Skeleton" index="5"]
-transform = Transform( 0.578611, -0.360783, 0.731468, -0.618109, 0.391148, 0.681868, -0.532119, -0.846663, 0.0033192, -14.984, 58.2297, -147.089 )
-
-[node name="BoneAttachment7" parent="Player/Mesh/Survivor/Armature/Skeleton" index="6"]
-transform = Transform( 0.865435, -0.485245, 0.124738, -0.324979, -0.354185, 0.876893, -0.381328, -0.799431, -0.464219, -9.79242, 31.0535, -142.076 )
-
-[node name="BoneAttachment8" parent="Player/Mesh/Survivor/Armature/Skeleton" index="7"]
-transform = Transform( -0.971844, -0.228251, -0.0584896, -0.224039, 0.972015, -0.0706649, 0.0729822, -0.0555713, -0.995784, -11.9131, 38.9468, -141.711 )
-
-[node name="BoneAttachment9" parent="Player/Mesh/Survivor/Armature/Skeleton" index="8"]
-transform = Transform( 0.0499101, 0.994632, 0.0906444, 0.997857, -0.0458135, -0.0467242, -0.0423208, 0.092782, -0.994787, -10.0459, 31.7031, -138.113 )
-
-[node name="BoneAttachment10" parent="Player/Mesh/Survivor/Armature/Skeleton" index="9"]
-transform = Transform( 0.475475, 0.878555, -0.0454374, 0.864328, -0.47615, -0.161918, -0.163889, 0.0377152, -0.985757, -9.63519, 31.3976, -136.439 )
-
-[node name="BoneAttachment11" parent="Player/Mesh/Survivor/Armature/Skeleton" index="10"]
-transform = Transform( 0.474354, 0.877865, -0.0658872, 0.864351, -0.478632, -0.154303, -0.166993, 0.0162443, -0.985824, -10.2177, 30.4301, -134.308 )
-
-[node name="BoneAttachment12" parent="Player/Mesh/Survivor/Armature/Skeleton" index="11"]
-transform = Transform( 0.978499, -0.000106032, 0.206252, -0.206252, -0.000502363, 0.978499, -1.12234e-07, -1, -0.000513174, 15.3419, 29.4401, -0.000569344 )
-
-[node name="BoneAttachment13" parent="Player/Mesh/Survivor/Armature/Skeleton" index="12"]
-transform = Transform( 0.589488, -0.000212924, -0.807777, 0.807777, 0.000156333, 0.589488, 8.51101e-07, -1, 0.000264326, -12.567, -13.7774, -0.558455 )
-
-[node name="GunAttachment" parent="Player/Mesh/Survivor/Armature/Skeleton" index="15"]
-transform = Transform( -0.213867, -0.975764, 0.0463119, -0.976813, 0.213136, -0.0202387, 0.00987758, -0.0495663, -0.998722, -14.8076, 23.5052, -139.742 )
-
-[node name="NeckBone" parent="Player/Mesh/Survivor/Armature/Skeleton" index="16"]
-transform = Transform( 0.802462, -0.3001, -0.515747, 0.595891, 0.357943, 0.718881, -0.0311287, -0.884204, 0.466063, -1.64585, 0.955508, -146.075 )
-
 [node name="Spatial" type="Spatial" parent="Player/Mesh/Survivor/Armature/Skeleton/NeckBone" index="1"]
 transform = Transform( 114.637, 4.44696, 85.1273, -42.8715, 126.315, 51.1347, -73.6782, -66.5804, 102.697, 747.467, 312.259, 978.113 )
 
-[node name="StreetMap" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105739, 0 )
+[node name="StreetLevel" type="MeshInstance" parent="."]
 
-[node name="KinematicBody" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00592, 1.12175, -1.50984 )
+[node name="StaticBody" type="StaticBody" parent="StreetLevel"]
+
+[node name="StreetMap" parent="StreetLevel/StaticBody" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0385385, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StreetLevel/StaticBody"]
+transform = Transform( 130, 0, 0, 0, 1, 0, 0, 0, 110, -2.74459, -0.737892, -9.37091 )
+shape = SubResource( 10 )
 
 [editable path="Player"]
 [editable path="Player/Mesh/Survivor"]
+[editable path="StreetLevel/StaticBody/StreetMap"]
