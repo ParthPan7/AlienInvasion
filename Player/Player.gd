@@ -4,12 +4,14 @@ var direction = Vector3.BACK
 var velocity = Vector3.ZERO
 var strafe_dir = Vector3.ZERO
 var strafe = Vector3.ZERO
-
+var audio_fire = null
 var aim_turn = 0
-
+var ray_cast = null
+var neck_attachment= null
+var neck_attachment_muzzle = null
 var vertical_velocity = 0
-var gravity = 20
-
+var gravity = 9.8
+var damage  = 10
 var movement_speed = 0
 var walk_speed = 1.5
 var run_speed = 5
@@ -19,7 +21,11 @@ var angular_acceleration = 7
 var roll_magnitude = 17
 
 func _ready():
+	ray_cast = $Camroot/h/v/Camera/RayCast
+	neck_attachment = $Mesh/Survivor/Armature/Skeleton/NeckBone
+	neck_attachment_muzzle = $Mesh/Survivor/Armature/Skeleton/NeckBone/Muzzle
 	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
+	audio_fire = preload("res://Audio/Rifle_fire.wav")
 	# Sometimes in the level design you might need to rotate the Player object itself
 	# So changing the direction at the beginning
 
@@ -29,13 +35,6 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		aim_turn = -event.relative.x * 0.015 #animates player with mouse movement while aiming (used in line 104)
 	
-	if event is InputEventKey: #checking which buttons are being pressed
-		if event.as_text() == "W" || event.as_text() == "A" || event.as_text() == "S" || event.as_text() == "D" || event.as_text() == "Space":
-			if event.pressed:
-				get_node("Status/" + event.as_text()).color = Color("ff6666")
-			else:
-				get_node("Status/" + event.as_text()).color = Color("ffffff")
-
 	if !$AnimationTree.get("parameters/roll/active"): # The "Tap To Roll" system
 		if event.is_action_pressed("sprint"):
 			if $roll_window.is_stopped():
@@ -49,19 +48,36 @@ func _input(event):
 				$AnimationTree.set("parameters/aim_transition/current", 1)
 				$roll_timer.start()
 
+func fireRifle():
+	if Input.is_action_pressed("aim") && Input.is_action_just_pressed("fire"):
+		$RifleAudioStreamPlayer.stream.audio_stream = audio_fire
+		$RifleAudioStreamPlayer.play()
+		neck_attachment.visible = true
+		neck_attachment_muzzle.get_node("MuzzleFlashAnimation").play("muzzle_flash")
+		if ray_cast.is_colliding():
+			#print("Hello")
+			var target = ray_cast.get_collider()
+			print(target)
+			if target.is_in_group("Enemy"):
+			   target.health -= damage
+			   print("Enemy")
+	else:
+		neck_attachment.visible = false
+		neck_attachment_muzzle.get_node("MuzzleFlashAnimation").stop()
+
 func _physics_process(delta):
-	
+	fireRifle()
 	if !$roll_timer.is_stopped():
 		acceleration = 3.5
 	else:
 		acceleration = 5
 	
 	if Input.is_action_pressed("aim"):
-		$Status/Aim.color = Color("ff6666")
+		$Camroot/h/v/Camera/TextureRect.visible = true
 		if !$AnimationTree.get("parameters/roll/active"):
 			$AnimationTree.set("parameters/aim_transition/current", 0)
 	else:
-		$Status/Aim.color = Color("ffffff")
+		$Camroot/h/v/Camera/TextureRect.visible = false
 		$AnimationTree.set("parameters/aim_transition/current", 1)
 	
 	
