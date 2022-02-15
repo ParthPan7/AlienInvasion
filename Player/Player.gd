@@ -19,7 +19,13 @@ var acceleration = 6
 var angular_acceleration = 7
 
 var roll_magnitude = 17
+var players_health  = 700
 
+func bullet_hit(damage, bullet_hit_pos):
+	players_health -= damage
+	if players_health <= 0:
+		queue_free() 
+	
 func _ready():
 	ray_cast = $Camroot/h/v/Camera/RayCast
 	neck_attachment = $Mesh/Survivor/Armature/Skeleton/NeckBone

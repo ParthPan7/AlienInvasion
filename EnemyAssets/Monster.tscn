@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://EnemyAssets/EnemyMonster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EnemyAssets/Monster.gd" type="Script" id=2]
+[ext_resource path="res://EnemyAssets/MonsterMeshController.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 2.19389
+height = 2.05705
+
+[sub_resource type="CapsuleShape" id=2]
+height = 0.121134
+
+[node name="MonsterBody" type="KinematicBody"]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="MonsterMeshHolder" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="ReleasePoint" parent="MonsterMeshHolder" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160698, 1.99048, 0.327513 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 16.2612, 0, 0, 0, 1.75785, 0, 0, 0, 22.7644, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 2.47471, 0, 0, 0, 2.97131, 0, 0, 0, 1.82132, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.81451, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[editable path="MonsterMeshHolder"]
