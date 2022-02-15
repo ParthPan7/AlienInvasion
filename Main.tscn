@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Grid.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://StreetMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://EnemyAssets/Monster.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -159,29 +160,74 @@ environment = SubResource( 9 )
 [node name="KinematicBody" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00592, 1.12175, -1.50984 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140411, -8.82898 )
+[node name="Player" parent="." groups=["Player"] instance=ExtResource( 2 )]
+transform = Transform( 0.120102, 0, 0.992761, 0, 1, 0, -0.992761, 0, 0.120102, 0, 0.140411, -8.82898 )
 
 [node name="AnimationTree" parent="Player" index="1"]
 "parameters/TimeScale 2/scale" = 2.2
 "parameters/TimeScale 3/scale" = 2.2
 
 [node name="Skeleton" parent="Player/Mesh/Survivor/Armature" index="0"]
-bones/4/bound_children = [ NodePath("NeckBone") ]
-bones/6/bound_children = [ NodePath("BoneAttachment") ]
-bones/16/bound_children = [ NodePath("BoneAttachment2") ]
-bones/19/bound_children = [ NodePath("BoneAttachment3") ]
-bones/22/bound_children = [ NodePath("BoneAttachment4") ]
-bones/25/bound_children = [ NodePath("BoneAttachment5") ]
-bones/28/bound_children = [ NodePath("BoneAttachment6") ]
-bones/33/bound_children = [ NodePath("GunAttachment") ]
-bones/35/bound_children = [ NodePath("BoneAttachment7") ]
-bones/38/bound_children = [ NodePath("BoneAttachment8") ]
-bones/41/bound_children = [ NodePath("BoneAttachment9") ]
-bones/44/bound_children = [ NodePath("BoneAttachment10") ]
-bones/47/bound_children = [ NodePath("BoneAttachment11") ]
-bones/51/bound_children = [ NodePath("BoneAttachment12") ]
-bones/55/bound_children = [ NodePath("BoneAttachment13") ]
+bones/4/bound_children = [  ]
+bones/6/bound_children = [  ]
+bones/16/bound_children = [  ]
+bones/19/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/25/bound_children = [  ]
+bones/28/bound_children = [  ]
+bones/33/bound_children = [  ]
+bones/35/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/44/bound_children = [  ]
+bones/47/bound_children = [  ]
+bones/51/bound_children = [  ]
+bones/55/bound_children = [  ]
+
+[node name="BoneAttachment" parent="Player/Mesh/Survivor/Armature/Skeleton" index="0"]
+transform = Transform( 0.935769, -0.109148, -0.335295, 0.351999, 0.345278, 0.869989, 0.0208124, -0.932132, 0.361521, -2.25472, 7.97645, -150.582 )
+
+[node name="BoneAttachment2" parent="Player/Mesh/Survivor/Armature/Skeleton" index="1"]
+transform = Transform( 0.18539, 0.528156, -0.828663, 0.670061, 0.548884, 0.499743, 0.718782, -0.647903, -0.252139, 21.0167, 29.4617, -83.1 )
+
+[node name="BoneAttachment3" parent="Player/Mesh/Survivor/Armature/Skeleton" index="2"]
+transform = Transform( -0.236031, 0.630014, -0.739846, 0.257765, 0.774676, 0.577438, 0.936935, -0.0544133, -0.345243, 28.8277, 34.2545, -76.5682 )
+
+[node name="BoneAttachment4" parent="Player/Mesh/Survivor/Armature/Skeleton" index="3"]
+transform = Transform( -0.336568, 0.567955, -0.751099, 0.440455, 0.79995, 0.407526, 0.832299, -0.193665, -0.519397, 25.9814, 36.8313, -79.1706 )
+
+[node name="BoneAttachment5" parent="Player/Mesh/Survivor/Armature/Skeleton" index="4"]
+transform = Transform( -0.478088, 0.519555, -0.708163, -0.127878, 0.75651, 0.641357, 0.868953, 0.397183, -0.295239, 28.8686, 29.9407, -75.6468 )
+
+[node name="BoneAttachment6" parent="Player/Mesh/Survivor/Armature/Skeleton" index="5"]
+transform = Transform( -0.56687, 0.443974, -0.693934, -0.258207, 0.704151, 0.661438, 0.782297, 0.554128, -0.284525, 30.6238, 27.4214, -77.5518 )
+
+[node name="BoneAttachment7" parent="Player/Mesh/Survivor/Armature/Skeleton" index="6"]
+transform = Transform( 0.136553, -0.954785, -0.264081, 0.0958488, -0.252594, 0.962813, -0.985985, -0.156787, 0.0570223, -28.8579, -11.1885, -81.7204 )
+
+[node name="BoneAttachment8" parent="Player/Mesh/Survivor/Armature/Skeleton" index="7"]
+transform = Transform( -0.193565, -0.957257, -0.21492, -0.358884, -0.134793, 0.923598, -0.913091, 0.255908, -0.317453, -32.93, -11.9005, -73.4788 )
+
+[node name="BoneAttachment9" parent="Player/Mesh/Survivor/Armature/Skeleton" index="8"]
+transform = Transform( -0.612762, -0.756066, -0.22997, -0.400622, 0.0463556, 0.91507, -0.681193, 0.652852, -0.331302, -30.2728, -13.6627, -72.7866 )
+
+[node name="BoneAttachment10" parent="Player/Mesh/Survivor/Armature/Skeleton" index="9"]
+transform = Transform( -0.804751, -0.554611, -0.211617, -0.329148, 0.120236, 0.936592, -0.494001, 0.823377, -0.279309, -28.281, -16.6804, -73.4999 )
+
+[node name="BoneAttachment11" parent="Player/Mesh/Survivor/Armature/Skeleton" index="10"]
+transform = Transform( -0.830022, -0.510059, -0.225615, -0.34037, 0.142791, 0.929386, -0.441827, 0.848204, -0.292129, -28.313, -19.473, -75.3509 )
+
+[node name="BoneAttachment12" parent="Player/Mesh/Survivor/Armature/Skeleton" index="11"]
+transform = Transform( 0.675783, 0.0182903, -0.736874, 0.73701, -0.0324448, 0.675102, -0.0115598, -0.999306, -0.0354056, 3.24801, 31.3128, 0.0897989 )
+
+[node name="BoneAttachment13" parent="Player/Mesh/Survivor/Armature/Skeleton" index="12"]
+transform = Transform( 0.310093, 0.0269496, -0.950324, 0.950689, -0.0147491, 0.309794, -0.00566743, -0.999528, -0.0301941, -12.6509, -25.5968, 0.0932264 )
+
+[node name="GunAttachment" parent="Player/Mesh/Survivor/Armature/Skeleton" index="15"]
+transform = Transform( 0.163102, -0.922439, -0.350004, -0.243622, -0.381425, 0.89172, -0.956058, -0.0601722, -0.286938, -30.488, -17.0574, -88.98 )
+
+[node name="NeckBone" parent="Player/Mesh/Survivor/Armature/Skeleton" index="16"]
+transform = Transform( 0.939035, -0.113611, -0.324508, 0.343302, 0.361641, 0.86681, 0.018876, -0.925369, 0.378597, -0.729046, 3.43464, -143.495 )
 
 [node name="Spatial" type="Spatial" parent="Player/Mesh/Survivor/Armature/Skeleton/NeckBone" index="1"]
 transform = Transform( 114.637, 4.44696, 85.1273, -42.8715, 126.315, 51.1347, -73.6782, -66.5804, 102.697, 747.467, 312.259, 978.113 )
@@ -197,6 +243,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0385385, 0 )
 transform = Transform( 130, 0, 0, 0, 1, 0, 0, 0, 110, -2.74459, -0.737892, -9.37091 )
 shape = SubResource( 10 )
 
+[node name="MonsterBody" parent="." groups=["Enemy"] instance=ExtResource( 5 )]
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 8.05825, 0.262274, -7.80024 )
+
+[node name="Area" parent="MonsterBody" index="1"]
+transform = Transform( 8.93104, 0, 0, 0, 1.75785, 0, 0, 0, 9.90098, 0, 0, 0 )
+
+[connection signal="body_entered" from="MonsterBody/Area" to="MonsterBody" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="MonsterBody/Area" to="MonsterBody/MonsterMeshHolder" method="_on_Area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Mesh/Survivor"]
 [editable path="StreetLevel/StaticBody/StreetMap"]
+[editable path="MonsterBody"]
+[editable path="MonsterBody/MonsterMeshHolder"]
