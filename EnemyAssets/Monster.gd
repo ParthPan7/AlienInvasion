@@ -28,7 +28,7 @@ func _ready():
 	pass # Replace with function body.
 
 func rotateInDirectionOfPlayer():	
-	if player:
+	if player && is_instance_valid(player):
 		var player_transform = player.get_global_transform().origin
 		look_at(player_transform , Vector3(0,1,0))
 		self.rotate_object_local(Vector3.UP, PI);

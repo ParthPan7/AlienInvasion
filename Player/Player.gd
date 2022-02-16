@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal player_health_decline_signal(players_health)
+signal player_death_signal(body) 
 var direction = Vector3.BACK
 var velocity = Vector3.ZERO
 var strafe_dir = Vector3.ZERO
@@ -19,12 +21,15 @@ var acceleration = 6
 var angular_acceleration = 7
 
 var roll_magnitude = 17
-var players_health  = 700
+var players_health  = 70
+
 
 func bullet_hit(damage, bullet_hit_pos):
-	players_health -= damage
+	players_health -= damage/10
+	emit_signal("player_health_decline_signal",players_health)
 	if players_health <= 0:
-		queue_free() 
+		emit_signal("player_death_signal",self)
+		#get_tree().reload_current_scene()
 	
 func _ready():
 	ray_cast = $Camroot/h/v/Camera/RayCast

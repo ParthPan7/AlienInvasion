@@ -13,7 +13,7 @@ var animation_player = null
 # var b = "text"
 
 func fire_grenade():
-	if player and grenade_scene:
+	if player and grenade_scene and is_instance_valid(player):
 		print('grenade fired')
 		var grenade_clone
 		grenade_clone = grenade_scene.instance()
